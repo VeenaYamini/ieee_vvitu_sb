@@ -1,0 +1,6 @@
+{
+  "name": "ieee-vvitu-student-branch",
+  "private": true,
+  "scripts": {"dev": "concurrently -k \"npm:dev:client\" \"npm:dev:server\"", "dev:client": "npm --prefix client run dev", "dev:server": "npm --prefix server run dev", "build": "npm --prefix client run build", "start": "npm --prefix server start"},
+  "devDependencies": {"concurrently": "^9.1.2"}
+}
