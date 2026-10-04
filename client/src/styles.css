@@ -76,7 +76,7 @@
 .detail-poster{object-fit:contain}
 .map-embed{margin-top:30px;aspect-ratio:4/3;overflow:hidden;background:#edf3f6}
 .map-embed iframe{display:block;width:100%;height:100%;border:0}
-.about-objectives h2,.faculty-messages h2,.history h2{text-transform:uppercase;font-size:27px;letter-spacing:.015em}
+.about-objectives h2,.faculty-messages-section>h2,.history h2{text-transform:uppercase;font-size:23px;letter-spacing:.015em;color:var(--blue)}
 @media(max-width:650px){.event-grid:not(.event-grid-archive) .event-card{grid-template-columns:minmax(0,1fr);min-height:0}.event-grid:not(.event-grid-archive) .event-poster{height:auto;min-height:0;aspect-ratio:4/3}.event-grid:not(.event-grid-archive) .event-card-body{min-height:0;padding:18px}}
 .stat-band{background:var(--blue);padding:32px 0}
 .stat-band .stats>div{border-color:#ffffff40}
@@ -85,6 +85,23 @@
 .stat-band .stats>div:last-child{border:0}
 .contact-line a{color:var(--navy)}
 .contact-line a:hover,.footer-grid a[href^="mailto:"]:hover{text-decoration:underline}
+.stats b{font-size:30px;line-height:1.15}
+.faculty-messages-section{padding:26px 0 10px;border-top:1px solid var(--line)}
+.faculty-messages-section>h2,.history h2,.about-objectives h2{margin:8px 0 18px}
+.coordinator-message-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.faculty-message{height:100%;border-top:3px solid var(--blue);background:#f8fafc}
+.faculty-message h3{margin:0 0 14px;color:var(--navy);font:700 17px/1.35 Manrope,sans-serif}
+.faculty-message p{margin:10px 0 0;color:#526574;font-size:13px;line-height:1.75}
+.history-timeline{position:relative;display:grid;gap:18px;list-style:none;margin:0;padding:2px 0 2px 31px}
+.history-timeline::before{position:absolute;top:8px;bottom:8px;left:9px;width:2px;background:#c7d6e3;content:""}
+.history-stage{position:relative;min-width:0}
+.history-stage::before{position:absolute;top:18px;left:-29px;width:14px;height:14px;border:3px solid var(--blue);border-radius:50%;background:#fff;content:"";z-index:1}
+.history-stage article{padding:16px 20px;background:var(--pale);border:1px solid #e4ebf0}
+.history-stage:nth-child(even) article{background:#f8fafc}
+.history-stage h3{margin:0 0 7px;color:var(--navy);font:700 15px/1.4 Manrope,sans-serif}
+.history-stage p{margin:0;color:#526574;font-size:13px;line-height:1.7}
+@media(max-width:850px){.stats b{font-size:27px}.coordinator-message-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.stats b{font-size:25px}.faculty-messages-section{padding-top:22px}.history-timeline{gap:13px;padding-left:27px}.history-stage::before{left:-25px}.history-stage article{padding:14px 16px}.history-stage h3{font-size:14px}}
 .detail-poster-frame .detail-poster{display:block;width:100%;height:auto;max-height:650px;object-fit:contain}
 .detail-poster-placeholder{aspect-ratio:4/5;min-height:350px}
 .event-detail-copy{min-width:0}

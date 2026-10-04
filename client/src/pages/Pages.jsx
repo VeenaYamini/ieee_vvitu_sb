@@ -46,7 +46,7 @@ function AnimatedStat({ value, label }) {
       started = true;
       observer.disconnect();
       const startTime = performance.now();
-      const duration = 950;
+      const duration = 2400;
       const step = now => {
         const progress = Math.min((now - startTime) / duration, 1);
         setCount(Math.round(target * (1 - (1 - progress) ** 3)));
@@ -81,8 +81,8 @@ export function About() {
     <section className="about-card-grid" aria-label="About IEEE, the Student Branch, and VVITU"><article className="content-card"><span className="eyebrow">01 · IEEE</span><h2>{aboutContent.ieee.title}</h2><p>{aboutContent.ieee.description}</p><a className="text-link" href={aboutContent.ieee.link} target="_blank" rel="noreferrer">About IEEE <ArrowUpRight size={15}/></a></article><article className="content-card"><span className="eyebrow">02 · Student Branch</span><h2>{aboutContent.branch.title}</h2><p>{aboutContent.branch.description}</p></article><article className="content-card"><span className="eyebrow">03 · VVITU</span><h2>{aboutContent.university.title}</h2><p><strong>{aboutContent.university.name}</strong> {aboutContent.university.description}</p><a className="text-link" href={siteInfo.universityWebsite} target="_blank" rel="noreferrer">Visit VVITU <ArrowUpRight size={15}/></a></article></section>
     <section className="vision" aria-label="Our vision and mission"><article className="vision-card"><div className="eyebrow">Our Vision</div><p>{aboutContent.vision}</p></article><article className="vision-card"><div className="eyebrow">Our Mission</div><p>{aboutContent.mission}</p></article></section>
     <section className="about-objectives"><h2>{aboutContent.objectivesTitle.toUpperCase()}</h2><ol className="objective-list">{aboutContent.objectives.map(item=><li key={item}>{item}</li>)}</ol></section>
-    <section className="about-detail-card faculty-messages"><h2>FACULTY COORDINATOR MESSAGES</h2><p>{aboutContent.coordinatorMessage}</p><div className="coordinator-names"><span>Dr. M. R. N. Tagore</span><span>Dr. O. Aruna</span></div></section>
-    <section className="history"><h2>BRANCH HISTORY</h2><p>{aboutContent.history}</p></section>
+    <section className="faculty-messages-section"><h2>FACULTY COORDINATOR MESSAGES</h2><div className="coordinator-message-grid">{aboutContent.coordinatorMessages.map(coordinator=><article className="about-detail-card faculty-message" key={coordinator.name}><h3>{coordinator.name}</h3>{coordinator.paragraphs.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</article>)}</div></section>
+    <section className="history"><h2>BRANCH HISTORY</h2><ol className="history-timeline">{aboutContent.history.map(stage=><li className="history-stage" key={stage.heading}><article><h3>{stage.heading}</h3><p>{stage.description}</p></article></li>)}</ol></section>
   </div></>;
 }
 
