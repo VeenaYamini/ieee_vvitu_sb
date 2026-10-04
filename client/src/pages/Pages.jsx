@@ -24,11 +24,52 @@ function EventCard({ event }) {
   return <Link className="event-card" to={`/events/${event.slug}`} aria-label={`View details for ${event.name}`}><div className="event-poster">{event.poster?<img src={event.poster} alt={event.posterAlt||`${event.name} poster`} loading="lazy"/>:<div className="poster-placeholder">Poster coming soon</div>}</div><div className="event-card-body"><span className="tag">{event.category}</span><h3>{event.name}</h3><div className="event-date"><CalendarDays size={15}/><time>{event.date}</time></div><p>{event.shortDescription}</p><span className="text-link event-details-link">View Details <ArrowRight size={15}/></span></div></Link>;
 }
 
+function AnimatedStat({ value, label }) {
+  const target = Number.parseInt(value, 10) || 0;
+  const suffix = value.slice(String(target).length);
+  const [count, setCount] = useState(0);
+  const countRef = useRef(null);
+
+  useEffect(() => {
+    const element = countRef.current;
+    if (!element) return undefined;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      setCount(target);
+      return undefined;
+    }
+
+    let frame;
+    let started = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || started) return;
+      started = true;
+      observer.disconnect();
+      const startTime = performance.now();
+      const duration = 950;
+      const step = now => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        setCount(Math.round(target * (1 - (1 - progress) ** 3)));
+        if (progress < 1) frame = requestAnimationFrame(step);
+      };
+      frame = requestAnimationFrame(step);
+    }, { threshold: 0.35 });
+
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [target]);
+
+  return <div ref={countRef} aria-label={`${value} ${label}`}><b aria-hidden="true">{count}{suffix}</b><span>{label}</span></div>;
+}
+
 export function Home() {
     return <><Seo title="Home" description="IEEE Student Branch at Vasireddy Venkatadri International Technological University: student community, learning and technical activities."/>
     <section className="hero"><div className="container hero-grid"><div><div className="eyebrow light">{homeContent.eyebrow}</div><h1>{homeContent.headline}<br/><em>{homeContent.headlineEmphasis}</em></h1><p>{homeContent.introduction}</p><div className="hero-actions"><Link className="button button-white" to="/about">Discover our branch <ArrowRight size={17}/></Link><Link className="button button-outline" to="/events">Explore events</Link></div><div className="hero-note"><span className="status-dot"/>{homeContent.heroNote}</div></div><div className="hero-art"><img src={siteInfo.branchLogo} alt={`${siteInfo.organization} ${siteInfo.branch} logo`}/><div className="hero-art-caption">{siteInfo.organization}<br/><b>{siteInfo.university}</b></div></div></div></section>
     <section className="container section"><SectionTitle kicker="Who we are" title={homeContent.whoWeAre} link={['About the branch','/about']}/><div className="home-about"><div className="large-copy">{homeContent.branchIntroduction}</div><div className="home-about-side"><p>{homeContent.branchDescription}</p><Link className="text-link" to="/team">Meet the community <ArrowRight size={16}/></Link></div></div></section>
-    <section className="stat-band"><div className="container stats">{homeContent.statistics.map(stat=><div key={stat.label}><b>{stat.value}</b><span>{stat.label}</span></div>)}</div></section>
+    <section className="stat-band"><div className="container stats">{homeContent.statistics.map(stat=><AnimatedStat key={stat.label} value={stat.value} label={stat.label}/>)}</div></section>
     <section className="container section"><SectionTitle kicker="Branch calendar" title={homeContent.eventsHeading} link={['All events','/events']}/>{events.length?<div className="event-grid">{events.slice(0,2).map(event=><EventCard event={event} key={event.slug}/>)}</div>:<p className="empty-state">Recent events will appear here once branch details are available.</p>}</section>
     <section className="container join-strip"><div><div className="eyebrow light">Be part of it</div><h2>{homeContent.callToAction.heading}</h2><p>{homeContent.callToAction.description}</p></div><Link className="button button-white" to="/contact">Contact the branch <ArrowRight size={17}/></Link></section>
   </>;
@@ -139,7 +180,7 @@ export function Gallery() {
 export function Contact() {
   const [state,setState]=useState('idle'),[error,setError]=useState('');
   async function submit(event){event.preventDefault();setError('');const form=event.currentTarget;if(!form.reportValidity())return;setState('sending');try{const response=await fetch(`${import.meta.env.VITE_API_URL||'http://localhost:5000/api'}/contact`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});if(!response.ok)throw new Error((await response.json()).error||'Unable to send your message.');setState('success');form.reset();}catch(err){setError(`${err.message} You can also contact the branch through its official channels.`);setState('error');}}
-  return <><Seo title="Contact" description="Contact IEEE Student Branch VVITU and send the branch a message."/><div className="container page"><PageIntro eyebrow="Contact us" title="Start a conversation">Questions about the branch, activities, or getting involved? Send us a message.</PageIntro><div className="contact-grid"><div className="contact-info"><h2>We’d like to hear from you.</h2><p>Official contact details will be published once confirmed by the branch.</p><div className="contact-line"><Mail/><div><small>Email</small><b>{contactInfo.email}</b></div></div><div className="contact-line"><MapPin/><div><small>Visit</small><b>{contactInfo.address}</b></div></div><h3>Follow IEEE</h3><div className="social-links">{Object.entries(contactInfo.socialLinks).filter(([,url])=>url).map(([network,url])=><a key={network} href={url} target="_blank" rel="noreferrer">{network} <ExternalLink size={14}/></a>)}</div><div className="map-embed"><iframe src={contactInfo.mapEmbedUrl} width="600" height="450" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" title="VVITU campus map"/></div></div><form className="contact-form" onSubmit={submit}><h2>Send a message</h2><label>Name<input name="name" required minLength="2" autoComplete="name"/></label><label>Email<input name="email" type="email" required autoComplete="email"/></label><label>Subject<input name="subject" required minLength="3"/></label><label>Message<textarea name="message" rows="5" required minLength="10"/></label>{error&&<div role="alert" className="form-error">{error}</div>}{state==='success'&&<div role="status" className="form-success">Your message was received. Thank you.</div>}<button className="button button-blue" disabled={state==='sending'}>{state==='sending'?'Sending…':'Send message'} <Send size={16}/></button><small>Messages are sent to the development API. Delivery requires a configured submission store.</small></form></div></div></>;
+  return <><Seo title="Contact" description="Contact IEEE Student Branch VVITU and send the branch a message."/><div className="container page"><PageIntro eyebrow="Contact us" title="Start a conversation">Questions about the branch, activities, or getting involved? Send us a message.</PageIntro><div className="contact-grid"><div className="contact-info"><h2>We’d like to hear from you.</h2><p>Reach IEEE Student Branch VVITU through the email address below or its social media channels.</p><div className="contact-line"><Mail/><div><small>Email</small><b><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></b></div></div><div className="contact-line"><MapPin/><div><small>Visit</small><b>{contactInfo.address}</b></div></div><h3>Follow IEEE</h3><div className="social-links">{Object.entries(contactInfo.socialLinks).filter(([,url])=>url).map(([network,url])=><a key={network} href={url} target="_blank" rel="noreferrer">{network} <ExternalLink size={14}/></a>)}</div><div className="map-embed"><iframe src={contactInfo.mapEmbedUrl} width="600" height="450" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" title="VVITU campus map"/></div></div><form className="contact-form" onSubmit={submit}><h2>Send a message</h2><label>Name<input name="name" required minLength="2" autoComplete="name"/></label><label>Email<input name="email" type="email" required autoComplete="email"/></label><label>Subject<input name="subject" required minLength="3"/></label><label>Message<textarea name="message" rows="5" required minLength="10"/></label>{error&&<div role="alert" className="form-error">{error}</div>}{state==='success'&&<div role="status" className="form-success">Your message was received. Thank you.</div>}<button className="button button-blue" disabled={state==='sending'}>{state==='sending'?'Sending…':'Send message'} <Send size={16}/></button><small>Messages are sent to the development API. Delivery requires a configured submission store.</small></form></div></div></>;
 }
 
 export function Resources() {

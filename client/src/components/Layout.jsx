@@ -18,9 +18,9 @@ export function Header(){
 
 export function Footer(){
   return <footer className="footer"><div className="container footer-grid">
-    <div><div className="footer-brand"><div><b>{siteInfo.organization}</b><span>{siteInfo.university}</span></div></div><p>A community for students to learn, build, and share knowledge in engineering and technology.</p><a href={siteInfo.universityWebsite} className="text-link" target="_blank" rel="noreferrer">VVITU official website <ArrowUpRight size={14}/></a></div>
+    <div><div className="footer-brand"><img src={siteInfo.branchLogo} alt={`${siteInfo.organization} ${siteInfo.branch} logo`}/><div><b>{siteInfo.organization}</b><span>{siteInfo.university}</span></div></div><p>A community for students to learn, build, and share knowledge in engineering and technology.</p><a href={siteInfo.universityWebsite} className="text-link" target="_blank" rel="noreferrer">VVITU official website <ArrowUpRight size={14}/></a></div>
     <div><h3>Explore</h3><div className="footer-links">{links.slice(1).map(([name,path])=><Link key={path} to={path}>{name}</Link>)}</div></div>
-    <div><h3>Get in touch</h3><p><MapPin size={16}/>{siteInfo.address}</p><p><Mail size={16}/>{siteInfo.email}</p><div className="socials">{siteInfo.socialLinks.instagram&&<a href={siteInfo.socialLinks.instagram} aria-label="Instagram"><Instagram/></a>}{siteInfo.socialLinks.linkedin&&<a href={siteInfo.socialLinks.linkedin} aria-label="LinkedIn"><Linkedin/></a>}</div></div>
+    <div><h3>Get in touch</h3><p><MapPin size={16}/>{siteInfo.address}</p><p><Mail size={16}/><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p><div className="socials">{siteInfo.socialLinks.instagram&&<a href={siteInfo.socialLinks.instagram} aria-label="Instagram"><Instagram/></a>}{siteInfo.socialLinks.linkedin&&<a href={siteInfo.socialLinks.linkedin} aria-label="LinkedIn"><Linkedin/></a>}</div></div>
   </div><div className="container copyright"><span>© {new Date().getFullYear()} {siteInfo.organization}, {siteInfo.branch}</span></div></footer>;
 }
 export default function Layout({children}){return <><Header/><main>{children}</main><Footer/></>;}

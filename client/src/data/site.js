@@ -7,6 +7,6 @@ export const siteInfo = {
   branchLogo: '/assets/ieee-sb-vvitu.png',
   universityLogo: '/assets/vvitu-logo.png',
   address: 'Uppalapadu Road, Nambur, DT, Pedhakakani Mandal, Guntur, Andhra Pradesh 522508, India',
-  email: 'Official branch email to be confirmed',
+  email: 'vvitieeeofficial@gmail.com',
   socialLinks: { instagram: '', linkedin: '' },
 };
