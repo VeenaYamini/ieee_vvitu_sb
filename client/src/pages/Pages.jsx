@@ -82,7 +82,7 @@ export function About() {
     <section className="vision" aria-label="Our vision and mission"><article className="vision-card"><div className="eyebrow">Our Vision</div><p>{aboutContent.vision}</p></article><article className="vision-card"><div className="eyebrow">Our Mission</div><p>{aboutContent.mission}</p></article></section>
     <section className="about-objectives"><h2>{aboutContent.objectivesTitle.toUpperCase()}</h2><ol className="objective-list">{aboutContent.objectives.map(item=><li key={item}>{item}</li>)}</ol></section>
     <section className="faculty-messages-section"><h2>FACULTY COORDINATOR MESSAGES</h2><div className="coordinator-message-grid">{aboutContent.coordinatorMessages.map(coordinator=><article className="about-detail-card faculty-message" key={coordinator.name}><h3>{coordinator.name}</h3>{coordinator.paragraphs.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</article>)}</div></section>
-    <section className="history"><h2>BRANCH HISTORY</h2><ol className="history-timeline">{aboutContent.history.map(stage=><li className="history-stage" key={stage.heading}><article><h3>{stage.heading}</h3><p>{stage.description}</p></article></li>)}</ol></section>
+    <section className="history"><h2>BRANCH HISTORY</h2><ol className="history-timeline">{aboutContent.history.map(stage=><li className="history-stage" key={stage.period}><article><h3 className="history-stage-title"><span>{stage.period}</span><span className="history-stage-separator" aria-hidden="true">|</span><span>{stage.title}</span></h3><p>{stage.description}</p></article></li>)}</ol></section>
   </div></>;
 }
 

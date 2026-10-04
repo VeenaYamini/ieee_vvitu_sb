@@ -85,7 +85,9 @@
 .stat-band .stats>div:last-child{border:0}
 .contact-line a{color:var(--navy)}
 .contact-line a:hover,.footer-grid a[href^="mailto:"]:hover{text-decoration:underline}
-.stats b{font-size:30px;line-height:1.15}
+.stats b{font-size:36px;line-height:1.15}
+.stat-band .stats>div{grid-template-columns:1fr;row-gap:8px;text-align:center;align-content:center}
+.stat-band .stats span{font-size:14px;line-height:1.35}
 .faculty-messages-section{padding:26px 0 10px;border-top:1px solid var(--line)}
 .faculty-messages-section>h2,.history h2,.about-objectives h2{margin:8px 0 18px}
 .coordinator-message-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
@@ -98,10 +100,12 @@
 .history-stage::before{position:absolute;top:18px;left:-29px;width:14px;height:14px;border:3px solid var(--blue);border-radius:50%;background:#fff;content:"";z-index:1}
 .history-stage article{padding:16px 20px;background:var(--pale);border:1px solid #e4ebf0}
 .history-stage:nth-child(even) article{background:#f8fafc}
-.history-stage h3{margin:0 0 7px;color:var(--navy);font:700 15px/1.4 Manrope,sans-serif}
+.history-stage h3{margin:0 0 7px;color:var(--blue);font:700 11px/1.4 'DM Sans',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.history-stage-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.history-stage-separator{padding-inline:2px}
 .history-stage p{margin:0;color:#526574;font-size:13px;line-height:1.7}
-@media(max-width:850px){.stats b{font-size:27px}.coordinator-message-grid{grid-template-columns:1fr}}
-@media(max-width:650px){.stats b{font-size:25px}.faculty-messages-section{padding-top:22px}.history-timeline{gap:13px;padding-left:27px}.history-stage::before{left:-25px}.history-stage article{padding:14px 16px}.history-stage h3{font-size:14px}}
+@media(max-width:850px){.stats b{font-size:32px}.stat-band .stats span{font-size:13px}.coordinator-message-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.stats b{font-size:30px}.stat-band .stats span{font-size:13px}.faculty-messages-section{padding-top:22px}.history-timeline{gap:13px;padding-left:27px}.history-stage::before{left:-25px}.history-stage article{padding:14px 16px}}
 .detail-poster-frame .detail-poster{display:block;width:100%;height:auto;max-height:650px;object-fit:contain}
 .detail-poster-placeholder{aspect-ratio:4/5;min-height:350px}
 .event-detail-copy{min-width:0}

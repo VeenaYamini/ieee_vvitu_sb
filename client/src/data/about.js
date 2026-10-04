@@ -15,19 +15,22 @@ export const aboutContent = {
     'Encourage collaboration among students from different branches and backgrounds.',
     'Connect students with professionals, academicians, and the wider IEEE community.',
     'Support students in applying technology to real-world challenges.',
-    'Foster professional growth through networking, collaboration, and industry exposure.',
+    'Foster professional growth through networking and industry exposure.',
   ],
   history: [
     {
-      heading: '2019 | ESTABLISHMENT',
+      period: '2019',
+      title: 'ESTABLISHMENT',
       description: 'The IEEE Student Branch at VVITU was established with a vision to promote technical learning, innovation, and professional development beyond the classroom.',
     },
     {
-      heading: 'GROWTH | LEARNING & COLLABORATION',
+      period: 'GROWTH',
+      title: 'LEARNING & COLLABORATION',
       description: 'Over the years, IEEE VVITU has continued to grow as a platform for technical learning, creativity, teamwork, and leadership by creating opportunities for students to connect with the wider IEEE community and gain practical exposure to emerging technologies.',
     },
     {
-      heading: 'TODAY | CONTINUING THE JOURNEY',
+      period: 'TODAY',
+      title: 'CONTINUING THE JOURNEY',
       description: 'IEEE VVITU continues to foster learning, innovation, leadership, and collaboration while connecting students with the wider IEEE community.',
     },
   ],
@@ -44,9 +47,8 @@ export const aboutContent = {
       name: 'Dr. O. Aruna',
       paragraphs: [
         'It is a great pleasure to be associated with the IEEE Student Branch at VVITU and to witness the enthusiasm and commitment of our students towards learning, innovation, and professional growth.',
-        'IEEE provides students with opportunities to extend their learning beyond the classroom and connect with a global community of engineers, researchers, academicians, and professionals. Through technical workshops, seminars, hands-on activities, projects, competitions, and professional interactions, students can explore emerging technologies and develop practical skills.',
-        'Beyond technical knowledge, participation in IEEE helps students strengthen teamwork, leadership, communication, creativity, and problem-solving skills. It provides an environment where students can share ideas, take on challenges, and grow with confidence as future professionals.',
-        'I encourage all students to actively participate in the activities of the IEEE Student Branch, contribute their ideas, and make the most of the opportunities available through IEEE. I am confident that IEEE VVITU will continue to grow as a vibrant platform for technical learning, innovation, collaboration, and professional development.',
+        'IEEE provides students with opportunities to extend their learning beyond the classroom and connect with a global community of engineers, researchers, academicians, and professionals. Through workshops, seminars, projects, competitions, and professional interactions, students can explore emerging technologies and develop practical skills.',
+        'Beyond technical knowledge, IEEE helps students develop teamwork, leadership, communication, creativity, and problem-solving skills. I encourage all students to actively participate, share their ideas, take on new challenges, and make the most of the opportunities offered through IEEE. I am confident that IEEE VVITU will continue to grow as a vibrant platform for technical learning, innovation, collaboration, and professional development.',
       ],
     },
   ],
