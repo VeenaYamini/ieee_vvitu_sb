@@ -37,7 +37,7 @@ export const emCommittee = [
 ];
 
 export const smdCommittee = [
-  { name: 'M Jahnavi', position: 'Lead', department: 'ECE', photo: '/assets/team/m-jahnavi.png', linkedin: '', github: '' },
+  { name: 'M Jahnavi', position: 'Lead', department: 'ECE', photo: '/assets/team/m-jahnavi.png', photoScale: 1, linkedin: '', github: '' },
   { name: 'P Rushikesh', position: 'Co-Lead', department: 'CIC', photo: '/assets/team/p-rushikesh.jpg', linkedin: '', github: '' },
   { name: 'Pattan Maaz Navaz Khan', position: 'Member', department: 'CSO', photo: '/assets/team/pattan-maaz-navaz-khan.jpg', photoPosition: '50%', photoScale: 1, linkedin: '', github: '' },
   { name: 'Jagadeesh Puli', position: 'Member', department: 'CIC', photo: '/assets/team/jagadeesh-puli.jpg?v=2', photoPosition: '40%', photoScale: 1, linkedin: '', github: '' },

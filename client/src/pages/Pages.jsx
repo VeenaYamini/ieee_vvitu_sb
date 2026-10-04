@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, BookOpen, Mail, Send, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, BookOpen, Mail, Send, ExternalLink, ChevronDown } from 'lucide-react';
 import { homeContent } from '../data/home.js';
 import { aboutContent } from '../data/about.js';
 import { committees } from '../data/people/committees.js';
 import { events } from '../data/events.js';
 import { galleryAlbums } from '../data/gallery.js';
-import { resources } from '../data/resources.js';
+import { resources, branchDocuments } from '../data/resources.js';
 import { contactInfo } from '../data/contact.js';
 import { siteInfo } from '../data/site.js';
 
@@ -184,7 +184,13 @@ export function Contact() {
 }
 
 export function Resources() {
-  return <><Seo title="Resources" description="IEEE resources, branch documents, reports, and learning materials."/><div className="container page"><PageIntro eyebrow="Explore & learn" title="Resources">Useful links and documents for learning, professional development, and branch activities.</PageIntro><div className="resource-grid">{resources.map(([title,description,url,type,documents])=><article className="resource-card" key={title}><div className="resource-icon"><BookOpen/></div><span className="tag">{type}</span><h2>{title}</h2><p>{description}</p>{documents?.length?<ul className="resource-documents">{documents.map(document=><li key={document.url}><a href={document.url} target="_blank" rel="noreferrer" className="text-link">{document.name} <ArrowUpRight size={15}/></a></li>)}</ul>:url==='#'?<span className="muted">Coming soon</span>:<a href={url} target="_blank" rel="noreferrer" className="text-link">Open resource <ArrowUpRight size={15}/></a>}</article>)}</div></div></>;
+  const [showBranchDocuments, setShowBranchDocuments] = useState(false);
+  const orderedDocuments = branchDocuments.map(document => {
+    const event = events.find(item => item.slug === document.eventSlug);
+    return { ...document, eventName: event?.name ?? document.eventSlug, date: event?.date ?? '', sortDate: Date.parse(event?.date ?? '') || 0 };
+  }).sort((a, b) => b.sortDate - a.sortDate);
+
+  return <><Seo title="Resources" description="IEEE resources, branch documents, reports, and learning materials."/><div className="container page"><PageIntro eyebrow="Explore & learn" title="Resources">Useful links and documents for learning, professional development, and branch activities.</PageIntro><div className="resource-grid">{resources.map(([title,description,url,type])=><article className="resource-card" key={title}><div className="resource-icon"><BookOpen/></div><span className="tag">{type}</span><h2>{title}</h2><p>{description}</p>{type==='Branch documents'?<><button className="text-link resource-disclosure" type="button" aria-expanded={showBranchDocuments} onClick={()=>setShowBranchDocuments(open=>!open)}>{showBranchDocuments?'Hide documents':'View documents'} <ChevronDown size={15}/></button>{showBranchDocuments&&<div className="resource-table-scroll"><table className="resource-table"><thead><tr><th scope="col">Event</th><th scope="col">Date</th><th scope="col">Document</th></tr></thead><tbody>{orderedDocuments.map(document=><tr key={document.url}><td>{document.eventName}</td><td><time>{document.date}</time></td><td><a href={document.url} target="_blank" rel="noreferrer">Open PDF <ArrowUpRight size={13}/></a></td></tr>)}</tbody></table></div>}</>:<a href={url} target="_blank" rel="noreferrer" className="text-link">Open resource <ArrowUpRight size={15}/></a>}</article>)}</div></div></>;
 }
 
 export function NotFound() {
