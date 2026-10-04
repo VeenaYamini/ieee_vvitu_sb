@@ -2,6 +2,24 @@
 // Only verified information belongs here; leave unavailable values empty.
 export const events = [
   {
+    name: 'Robotics Workshop by Techfest IIT Bombay',
+    slug: 'robotics-workshop-techfest-iit-bombay',
+    category: 'Workshop',
+    date: '29 September 2026',
+    organizer: 'Techfest IIT Bombay × VVIT University, in association with IEEE VVITU Student Branch and Synaptyx Robotics',
+    poster: '/assets/event-posters/IITB Robotics WS.jpg',
+    posterAlt: 'Robotics Workshop by Techfest IIT Bombay poster',
+    gallery: [],
+    shortDescription: 'A hands-on robotics workshop introducing students to sensors, actuators, embedded systems, robotics, and real-world automation applications.',
+    description: 'The Robotics Workshop, presented by Techfest IIT Bombay in collaboration with VVIT University, IEEE VVITU Student Branch, and Synaptyx Robotics, provided students with practical exposure to robotics and automation. The workshop introduced concepts related to sensors, actuators, embedded systems, intelligent machines, and real-world robotics applications. Students also gained exposure to Techfest IIT Bombay opportunities and future technical competitions.',
+    venue: 'Honesty Block Seminar Hall, VVIT University',
+    time: '8:50 AM – 3:00 PM',
+    participants: '2nd and 3rd Year Students',
+    additionalInfo: [],
+    registrationLink: '',
+    reportLink: '',
+  },
+  {
     name: 'Orientation Day 2026 @VVITU',
     slug: 'orientation-day-2026',
     category: 'Orientation',

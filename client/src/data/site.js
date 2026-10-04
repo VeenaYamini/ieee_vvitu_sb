@@ -6,7 +6,7 @@ export const siteInfo = {
   universityWebsite: 'https://vvitu.ac.in/',
   branchLogo: '/assets/ieee-sb-vvitu.png',
   universityLogo: '/assets/vvitu-logo.png',
-  address: 'Official postal address to be confirmed',
+  address: 'Uppalapadu Road, Nambur, DT, Pedhakakani Mandal, Guntur, Andhra Pradesh 522508, India',
   email: 'Official branch email to be confirmed',
   socialLinks: { instagram: '', linkedin: '' },
 };

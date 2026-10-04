@@ -68,6 +68,15 @@
 .event-grid-archive .event-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:0;margin:12px 0 18px;font-size:13px;line-height:1.6}
 .event-details-link{align-self:flex-start;margin-top:auto;padding-top:3px}
 .detail-poster-frame{display:grid;place-items:center;min-width:0;min-height:250px;background:#f3f6f8;border:1px solid var(--line)}
+/* Home feature cards keep the full poster visible beside the event copy. */
+.event-grid:not(.event-grid-archive) .event-card{grid-template-columns:42% minmax(0,1fr);min-height:310px}
+.event-grid:not(.event-grid-archive) .event-poster{display:grid;place-items:center;min-height:310px;aspect-ratio:auto;padding:12px}
+.event-grid:not(.event-grid-archive) .event-poster img{width:100%;height:100%;object-fit:contain}
+.detail-poster{object-fit:contain}
+.map-embed{margin-top:30px;aspect-ratio:4/3;overflow:hidden;background:#edf3f6}
+.map-embed iframe{display:block;width:100%;height:100%;border:0}
+.about-objectives h2,.faculty-messages h2,.history h2{text-transform:uppercase;font-size:27px;letter-spacing:.015em}
+@media(max-width:650px){.event-grid:not(.event-grid-archive) .event-card{grid-template-columns:minmax(0,1fr);min-height:0}.event-grid:not(.event-grid-archive) .event-poster{height:auto;min-height:0;aspect-ratio:1/1}.event-grid:not(.event-grid-archive) .event-card-body{min-height:230px}}
 .detail-poster-frame .detail-poster{display:block;width:100%;height:auto;max-height:650px;object-fit:contain}
 .detail-poster-placeholder{aspect-ratio:4/5;min-height:350px}
 .event-detail-copy{min-width:0}

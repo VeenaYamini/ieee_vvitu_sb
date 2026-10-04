@@ -8,12 +8,11 @@ export const homeContent = {
   branchIntroduction: 'We connect curious students with the people, knowledge, and experiences that help them grow in engineering and technology.',
   branchDescription: 'Through technical sessions, workshops, peer learning, and community activities, our branch creates opportunities for students to learn by doing and contribute together.',
   statistics: [
-    { label: 'Members', value: 'To be confirmed' },
-    { label: 'Events conducted', value: 'To be confirmed' },
-    { label: 'Workshops', value: 'To be confirmed' },
-    { label: 'Awards & achievements', value: 'To be confirmed' },
+    { label: 'Members', value: '25+' },
+    { label: 'Events Conducted', value: '15+' },
+    { label: 'Workshops', value: '5+' },
+    { label: 'Awards & Achievements', value: '10+' },
   ],
-  statisticsNote: 'Official member, event, workshop, and award totals will be added when verified.',
-  eventsHeading: 'Upcoming events',
+  eventsHeading: 'Recent events',
   callToAction: { heading: 'Bring your curiosity. Find your people.', description: 'Get in touch to learn about IEEE activities at VVITU.' },
 };
