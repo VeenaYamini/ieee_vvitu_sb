@@ -1,8 +1,8 @@
 // Team roster details from the supplied 2026 workbook. Update names, roles, departments,
 // photo URLs, and social profile URLs here; do not add student IDs or personal phone numbers.
 export const facultyCoordinators = [
-  { name: 'DR. M R N Tagore', position: 'Faculty Coordinator', department: 'CIC', photo: '/assets/dr-mrn-tagore.png', photoPosition: '5%', photoScale: 1, linkedin: '', github: '' },
-  { name: 'DR O Aruna', position: 'Asst Proffessor', department: 'CIC', photo: '/assets/dr-o-aruna.jpeg', photoPosition: '30%', photoScale: 1, linkedin: '', github: '' },
+  { name: 'M R N Tagore', position: 'Professor', department: 'CSE', photo: '/assets/dr-mrn-tagore.png', photoPosition: '5%', photoScale: 1, linkedin: '', github: '' },
+  { name: 'O Aruna', position: 'Asst Professor', department: 'CSE', photo: '/assets/dr-o-aruna.jpeg', photoPosition: '30%', photoScale: 1, linkedin: '', github: '' },
 ];
 
 export const executiveCommittee = [
@@ -15,7 +15,7 @@ export const executiveCommittee = [
 export const webmasterTeam = [
   { name: 'V K Sri Veena Yamini', position: 'Lead', department: 'CIC', photo: '/assets/team/v-k-sri-veena-yamini.png?v=3', photoPosition: '28%', photoScale: 1, linkedin: '', github: '' },
   { name: 'N Bobby', position: 'Co-lead', department: 'CAI', photo: '/assets/team/n-bobby.png', linkedin: '', github: '' },
-  { name: 'K Bindu Sri', position: 'Member', department: 'CIC', photo: '/assets/team/k-bindu-sri.png', linkedin: '', github: '' },
+  { name: 'K Bindu Sri', position: 'Member', department: 'CIC', photo: '/assets/team/k-bindu-sri.png', photoScale: 1, linkedin: '', github: '' },
   { name: 'K Yashwanth Bala Ganesh', position: 'Member', department: 'CAI', photo: '/assets/team/k-yashwanth-bala-ganesh.png', linkedin: '', github: '' },
 ];
 
@@ -30,7 +30,7 @@ export const prCommittee = [
 
 export const emCommittee = [
   { name: 'K Hari Krishna Yadav', position: 'Lead', department: 'ECE', photo: '/assets/team/k-hari-krishna-yadav.png', photoPosition: '10%', photoScale: 1.3, linkedin: '', github: '' },
-  { name: 'Naga Lasya Konduri', position: 'Co-Lead', department: 'CSE', photo: '/assets/team/naga-lasya-konduri.jpg', photoPosition: '0%', photoScale: 1.3, linkedin: '', github: '' },
+  { name: 'Naga Lasya Konduri', position: 'Co-Lead', department: 'CSE', photo: '/assets/team/naga-lasya-konduri.jpg', photoPosition: '50%', photoScale: 1, linkedin: '', github: '' },
   { name: 'Gnanavardhini', position: 'Member', department: 'CAI', photo: '/assets/team/gnanavardhini.jpg', photoPosition: '0%', photoScale: 1.3, linkedin: '', github: '' },
   { name: 'Sai Revanth Reddy Vajrala', position: 'Member', department: 'CSM', photo: '/assets/team/sai-revanth-reddy-vajrala.png', linkedin: '', github: '' },
   { name: 'Sreelela Valicherla', position: 'Member', department: 'CSM', photo: '/assets/team/sreelela-valicherla.jpg', linkedin: '', github: '' },
@@ -39,7 +39,7 @@ export const emCommittee = [
 export const smdCommittee = [
   { name: 'M Jahnavi', position: 'Lead', department: 'ECE', photo: '/assets/team/m-jahnavi.png', linkedin: '', github: '' },
   { name: 'P Rushikesh', position: 'Co-Lead', department: 'CIC', photo: '/assets/team/p-rushikesh.jpg', linkedin: '', github: '' },
-  { name: 'Pattan Maaz Navaz Khan', position: 'Member', department: 'CSO', photo: '/assets/team/pattan-maaz-navaz-khan.jpg', photoPosition: '10%', photoScale: 1.4, linkedin: '', github: '' },
+  { name: 'Pattan Maaz Navaz Khan', position: 'Member', department: 'CSO', photo: '/assets/team/pattan-maaz-navaz-khan.jpg', photoPosition: '50%', photoScale: 1, linkedin: '', github: '' },
   { name: 'Jagadeesh Puli', position: 'Member', department: 'CIC', photo: '/assets/team/jagadeesh-puli.jpg?v=2', photoPosition: '40%', photoScale: 1, linkedin: '', github: '' },
   { name: 'Sruthi Malladi', position: 'Member', department: 'CIC', photo: '/assets/team/sruthi-malladi.jpg', linkedin: '', github: '' },
 ];

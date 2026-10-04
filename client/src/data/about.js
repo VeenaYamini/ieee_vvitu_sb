@@ -36,7 +36,7 @@ export const aboutContent = {
   ],
   coordinatorMessages: [
     {
-      name: 'Dr. M. R. N. Tagore',
+      name: 'M. R. N. Tagore',
       paragraphs: [
         'It has been a privilege to guide the IEEE Student Branch at VVITU since its inception in 2019. Over the years, the branch has grown into a platform where students can learn beyond the classroom and connect with the wider IEEE community.',
         'Through IEEE VVITU, students can apply their knowledge through projects, technical events, competitions, and professional interactions while developing technical, teamwork, communication, and leadership skills. These experiences can support them in their careers, higher studies, research, and future pursuits.',
@@ -44,7 +44,7 @@ export const aboutContent = {
       ],
     },
     {
-      name: 'Dr. O. Aruna',
+      name: 'O. Aruna',
       paragraphs: [
         'It is a great pleasure to be associated with the IEEE Student Branch at VVITU and to witness the enthusiasm and commitment of our students towards learning, innovation, and professional growth.',
         'IEEE provides students with opportunities to extend their learning beyond the classroom and connect with a global community of engineers, researchers, academicians, and professionals. Through workshops, seminars, projects, competitions, and professional interactions, students can explore emerging technologies and develop practical skills.',

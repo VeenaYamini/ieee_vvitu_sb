@@ -20,6 +20,14 @@ function album({ year, event, eventFolder, eventSlug, date = '', altEvent = even
 export const galleryAlbums = [
   album({
     year: 2026,
+    event: 'Robotics Workshop by Techfest IIT Bombay',
+    eventFolder: 'Robotics WS',
+    eventSlug: 'robotics-workshop-techfest-iit-bombay',
+    date: '29 September 2026',
+    files: ['WS 1.jpg', 'WS 2.jpg', 'WS 3.jpg', 'WS 4.jpg'],
+  }),
+  album({
+    year: 2026,
     event: 'Orientation Day 2026 @VVITU',
     eventFolder: 'Orientation Day 2026',
     eventSlug: 'orientation-day-2026',
