@@ -1,8 +1,8 @@
 // Team roster details from the supplied 2026 workbook. Update names, roles, departments,
 // photo URLs, and social profile URLs here; do not add student IDs or personal phone numbers.
 export const facultyCoordinators = [
-  { name: 'M R N Tagore', position: 'Professor', department: 'CSE', photo: '/assets/dr-mrn-tagore.png', photoPosition: '5%', photoScale: 1, linkedin: '', github: '' },
-  { name: 'O Aruna', position: 'Asst Professor', department: 'CSE', photo: '/assets/dr-o-aruna.jpeg', photoPosition: '30%', photoScale: 1, linkedin: '', github: '' },
+  { name: 'Dr. M R N Tagore', position: 'Professor · Student Branch Counsellor', department: 'CSE', photo: '/assets/dr-mrn-tagore.png', photoPosition: '5%', photoScale: 1, linkedin: '', github: '' },
+  { name: 'Dr. O Aruna', position: 'Professor · Faculty Co-ordinator', department: 'CSE', photo: '/assets/dr-o-aruna.jpeg', photoPosition: '30%', photoScale: 1, linkedin: '', github: '' },
 ];
 
 export const executiveCommittee = [
