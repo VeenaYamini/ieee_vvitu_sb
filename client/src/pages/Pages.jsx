@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, BookOpen, Mail, Send, ExternalLink, ChevronDown } from 'lucide-react';
 import { homeContent } from '../data/home.js';
 import { aboutContent } from '../data/about.js';
-import { committees } from '../data/people/committees.js';
+import { committeesByYear } from '../data/people/committees.js';
 import { events } from '../data/events.js';
 import { galleryAlbums } from '../data/gallery.js';
 import { resources, branchDocuments } from '../data/resources.js';
@@ -87,7 +87,10 @@ export function About() {
 }
 
 export function Team() {
-  return <><Seo title="Team" description="Meet the faculty coordinators, executive committee, webmasters, and committees of IEEE SB VVITU."/><div className="container page"><PageIntro eyebrow="Our people" title="The people behind the branch">A student community shaped by the time, ideas, and care of its members.</PageIntro>{committees.map((group,index)=><details className="team-group" key={group.name} open={index<2}><summary><span>{group.name}</span><span className="group-count">{group.members.length} profiles</span></summary><div className={`member-grid member-grid-${group.members.length}`}>{group.members.map((member,memberIndex)=><article className="member-card" key={memberIndex}><div className="avatar">{member.photo?<img src={member.photo} alt={`${member.name} portrait`} draggable={false} onDragStart={event=>event.preventDefault()} onContextMenu={event=>event.preventDefault()} style={{objectPosition: member.photoPosition ? `center ${member.photoPosition}` : undefined, transform: `scale(${member.photoScale || 1.2})`, transformOrigin: 'center'}}/>:<Users/>}</div><div><h3>{member.name}</h3><p>{member.position}</p><small>{member.department}</small></div></article>)}</div></details>)}</div></>;
+  const { teamYear } = useParams();
+  const selectedYear = teamYear && committeesByYear[teamYear] ? teamYear : '2026-2027';
+  const committees = committeesByYear[selectedYear];
+  return <><Seo title={`Team ${selectedYear}`} description={`Meet the faculty coordinators, executive committee, webmasters, and committees of IEEE SB VVITU for ${selectedYear}.`}/><div className="container page"><PageIntro eyebrow="Our people" title="The people behind the branch">A student community shaped by the time, ideas, and care of its members.</PageIntro>{committees.map((group,index)=><details className="team-group" key={group.name} open={index<2}><summary><span>{group.name}</span><span className="group-count">{group.members.length} profiles</span></summary><div className={`member-grid member-grid-${group.members.length}`}>{group.members.map((member,memberIndex)=><article className="member-card" key={memberIndex}><div className="avatar">{member.photo?<img src={member.photo} alt={`${member.name} portrait`} draggable={false} onDragStart={event=>event.preventDefault()} onContextMenu={event=>event.preventDefault()} style={{objectPosition: member.photoPosition ? `center ${member.photoPosition}` : undefined, transform: `scale(${member.photoScale || 1.2})`, transformOrigin: 'center'}}/>:<Users/>}</div><div><h3>{member.name}</h3><p>{member.position}</p><small>{member.department}</small></div></article>)}</div></details>)}</div></>;
 }
 
 export function Events() {
